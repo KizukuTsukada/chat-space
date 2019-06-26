@@ -20,7 +20,7 @@
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
-- has_many :users
+- has_many :members
 - has_many :messages
 - has_many :users, through: :members
 
