@@ -16,8 +16,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id |integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|name |string|null: false,unique: true|
 
 ### Association
 - has_many :members
@@ -42,7 +41,7 @@
 |user_id |integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 |image   |string |                              |
-|body    |text   |null: false, foreign_key: true|
+|body    |text   |foreign_key: true|
 
 ### Association
 - belongs_to :user
