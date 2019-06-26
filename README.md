@@ -8,8 +8,8 @@
 |email   |string |null: false, unique: true,      |
 
 ### Association
-- has_many :message
-- has_many :member
+- has_many :messages
+- has_many :members
 - has_many :groups, through: :members
 
 ## groupsテーブル
@@ -20,8 +20,9 @@
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
-- has_many :user
-- has_many :message
+- has_many :users
+- has_many :messages
+- has_many :users, through: :members
 
 ## membersテーブル
 
