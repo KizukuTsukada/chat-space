@@ -1,0 +1,58 @@
+
+.wrapper
+  .chat-side
+    .side-header
+      .side-header__box
+        %p.side-header__box__user-name
+          taro
+        %ul.side-header__box__menu
+          .side-header__box__menu__new-group
+            =fa_icon 'edit'
+
+          .side-header__box__menu__edit-user
+            =fa_icon 'cog'
+
+    .groups
+      .group
+        %p.group__group-name
+          チームA
+        %p.group__latest-message
+          参加自由だよー
+
+  .chat-main
+    .main-header
+      .main-header__left-box
+        %h2.main-header__left-box__current-group
+          グループ名
+
+        %ul.main-header__left-box__member-list
+          menber:
+          %li.main-header__left-box__member-list__member
+          taro
+
+      .main-header__edit-btn
+        Edit
+
+    .messages
+      .message
+        .message__upper-info
+          %p.message__upper-info__talker
+            taro
+          %p.message__upper-info__date
+            2019/06/27(Thu) 10:00:00
+
+        %p.message-text
+          メガネメガネメガネメガネメガネ
+
+    .form
+      .new-message
+        .input-box
+          %input.input-box__text
+          .input-box__image
+            %i.fa.fa-image
+        .submit-btn
+          Sent
+
+
+
+
