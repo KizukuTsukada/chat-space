@@ -1,25 +1,6 @@
 
 .wrapper
-  .chat-side
-    .side-header
-      .side-header__box
-        %p.side-header__box__user-name
-          = current_user.name
-        %ul.side-header__box__menu
-          .side-header__box__menu__new-group
-            = link_to new_group_path do
-              = fa_icon 'pencil-square-o', class: 'icon'
-
-          .side-header__box__menu__edit-user
-            = link_to edit_user_path(current_user) do
-              = fa_icon 'cog', class: 'icon'
-
-    .groups
-      .group
-        %p.group__group-name
-          チームA
-        %p.group__latest-message
-          参加自由だよー
+  = render 'shared/side_bar'
 
   .chat-main
     .main-header
