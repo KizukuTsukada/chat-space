@@ -3,8 +3,8 @@ class GroupsController < ApplicationController
   end
 
   def new
-    @group = Group.new #Groupモデルの新しいインスタンス
-    @group.users << current_user #現在ログイン中のユーザーを、新規作成したグループに追加している
+    @group = Group.new
+    @group.users << current_user
   end
 
   def create
@@ -18,6 +18,6 @@ class GroupsController < ApplicationController
 
   private
   def group_params
-    params.require(:group).permit(:name, { :user_ids => [] })
+    params.require(:group).permit(:name, user_ids: [] )
   end
 end
