@@ -15,9 +15,12 @@
  
  @import "font-awesome";
  @import "./reset";
+ @import "./config/size";
  @import "./config/colors";
  @import "./clearfix.scss";
  @import "modules/group";
+ @import "modules/side_bar";
  @import "./messages";
  @import "./user";
  @import "./modules/flash";
+ 
