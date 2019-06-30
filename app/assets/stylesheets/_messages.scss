@@ -36,9 +36,15 @@ ol,ul {
         display: flex;
         &__new-group{
           margin-left: 0.3rem;
+          .fa.fa-pencil-square-o{
+            color: white;
+          }
         }
         &__edit-user{
           margin-left: 0.3rem;
+          .fa.fa-cog{
+            color: white;
+          }
         }
       }
     }
