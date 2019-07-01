@@ -17,25 +17,16 @@
         Edit
 
     .messages
-      .message
-        .message__upper-info
-          %p.message__upper-info__talker
-            taro
-          %p.message__upper-info__date
-            2019/06/27(Thu) 10:00:00
-
-        %p.message-text
-          メガネメガネメガネメガネメガネ
+      = render @messages
 
     .form
-      .new-message
-        .input-box
-          %input.input-box__text
-          .input-box__image
-            %i.fa.fa-image
-        .submit-btn
-          Sent
-
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
 
 
 
