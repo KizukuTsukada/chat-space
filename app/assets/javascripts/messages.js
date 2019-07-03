@@ -16,11 +16,10 @@ $(function(){
                   ${message.content}
                   </p>
                   </p>
-                  <img class="lower-message__image" src=“${message.image}”Test image">
+                  <img class="lower-message__image" src="${message.image}"Test image">
                   </div>`
     return html;
   }
-
 
   $('#new_message').on('submit', function(e){
     e.preventDefault();
@@ -38,8 +37,10 @@ $(function(){
       var html = buildMessage(message);
       $('.messages').append(html)
       $('#message_content.form__message').val('')
+      $('.messages').animate({ scrollTop: $(".messages")[0].scrollHeight }, 500);
     })
     .fail(function(){
+      alert('投稿に失敗しました');
     })
   })
 });
