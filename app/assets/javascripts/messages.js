@@ -37,8 +37,8 @@ $(function(){
       var html = buildMessage(message);
       $('.form__submit').attr('disabled', false);
       $('.messages').append(html)
-      $('#message_content.form__message').val('')
-      $('.messages').animate({ scrollTop: $(".messages")[0].scrollHeight }, 500);
+      $('.messages').animate({ scrollTop: $(".messages")[0].scrollHeight }, 500)
+      $('#new_message')[0].reset();
     })
     .fail(function(){
       alert('投稿に失敗しました');
