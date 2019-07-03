@@ -131,6 +131,12 @@ ol,ul {
           margin-left: 10px;
         }
       }
+      .lower-message{
+        &__image{
+          height: 30%;
+          width: 50%;
+        }
+      }
     }
   }
   
