@@ -6,15 +6,18 @@
     .main-header
       .main-header__left-box
         %h2.main-header__left-box__current-group
-          グループ名
+          .timeline__groupName #{@group.name}
 
         %ul.main-header__left-box__member-list
-          menber:
+          
           %li.main-header__left-box__member-list__member
-          taro
+          Menber:
+          - @group.users.each do |group_member|
+            %div #{group_member.name}&nbsp;
 
       .main-header__edit-btn
-        Edit
+        = link_to edit_group_path(@group[:id]), class: "current--group__editBtn " do
+          Edit
 
     .messages
       = render @messages
