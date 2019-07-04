@@ -108,6 +108,10 @@ ol,ul {
       color: #38aef0;
       position: absolute;
       right: 40px;
+      .current--group__editBtn{
+        color: #38aef0;
+        text-decoration: none;
+      }
     }
   }
   .messages{
