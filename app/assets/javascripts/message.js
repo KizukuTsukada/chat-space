@@ -1,13 +1,13 @@
 $(function(){
     function buildMessage(message){
-      var insertImage = message.image == null ? "" : `<img src="${message.image}" class="lower-message__image">`
+      var insertImage = message.image.url == null ? "" : `<img src="${message.image.url}" class="lower-message__image">`
       var html = `<div class="message">
                     <div class="message__upper-info">
                     <p class="message__upper-info__talker">
-                    ${message.name}
+                    ${message.user_name}
                     </p>
                     <p class="message__upper-info__date">
-                    ${message.date}
+                    ${message.created_at}
                     </p>
                     </div>
                     <div class="lower-message"></div>
@@ -44,4 +44,36 @@ $(function(){
       alert('投稿に失敗しました');
     })
   })
+
+  var reloadMessages = function() {
+    //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
+    var last_message_id = $('.message').last().data('id');
+    $.ajax({
+      url: './api/messages',
+      type: 'GET',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+
+
+    .done(function(messages) {
+      console.log("test");
+      //追加するHTMLの入れ物を作る
+      var insertHTML = '';
+      //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
+      messages.forEach(function(message){
+      //メッセージが入ったHTMLを取得
+      insertHTML += buildMessage(message)
+      //メッセージを追加
+      })
+      $('.messages').append(insertHTML)
+      $('.messages').animate({ scrollTop: $(".messages")[0].scrollHeight }, 500);
+    })
+
+    .fail(function() {
+      alert('自動更新に失敗しました');
+    });
+  };
+  setInterval(reloadMessages, 3000);
 });
+
