@@ -64,9 +64,11 @@ $(function(){
       //メッセージが入ったHTMLを取得
       insertHTML += buildMessage(message)
       //メッセージを追加
-      })
       $('.messages').append(insertHTML)
       $('.messages').animate({ scrollTop: $(".messages")[0].scrollHeight }, 500);
+      })
+      
+      
     })
 
     .fail(function() {
