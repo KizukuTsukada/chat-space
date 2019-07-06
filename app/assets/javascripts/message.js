@@ -1,7 +1,7 @@
 $(function(){
     function buildMessage(message){
       var insertImage = message.image.url == null ? "" : `<img src="${message.image.url}" class="lower-message__image">`
-      var html = `<div class="message">
+      var html = `<div class="message" data-id=${message.id}>
                     <div class="message__upper-info">
                     <p class="message__upper-info__talker">
                     ${message.user_name}
@@ -15,7 +15,7 @@ $(function(){
                     ${message.content}
                     </p>
                     </p>
-                      ${insertImage}
+                    ${insertImage}
                     </div>`
       return html;
     }
@@ -64,14 +64,14 @@ $(function(){
       //メッセージが入ったHTMLを取得
       insertHTML += buildMessage(message)
       //メッセージを追加
-      })
       $('.messages').append(insertHTML)
       $('.messages').animate({ scrollTop: $(".messages")[0].scrollHeight }, 500);
+      })
     })
 
-    .fail(function() {
-      alert('自動更新に失敗しました');
-    });
+    // .fail(function() {
+    //   alert('自動更新に失敗しました');
+    // });
   };
   setInterval(reloadMessages, 3000);
 });

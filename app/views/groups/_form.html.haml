@@ -4,7 +4,8 @@
       %h2= "#{group.errors.full_messages.count}件のエラーが発生しました。"
       %ul
         - group.errors.full_messages.each do |message|
-          %li= グループ名
+          %li 
+            = message
   .chat-group-form__field
     .chat-group-form__field--left
       .label.chat-group-form__label{for: "group_name"}グループ名
