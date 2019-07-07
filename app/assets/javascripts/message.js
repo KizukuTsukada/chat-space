@@ -1,6 +1,9 @@
 $(function(){
     function buildMessage(message){
       var insertImage = message.image.url == null ? "" : `<img src="${message.image.url}" class="lower-message__image">`
+      if(message.image.url == null && message.content == ""){
+        ;
+      } else {
       var html = `<div class="message" data-id=${message.id}>
                     <div class="message__upper-info">
                     <p class="message__upper-info__talker">
@@ -15,10 +18,11 @@ $(function(){
                     ${message.content}
                     </p>
                     </p>
-                    ${insertImage}
+                      ${insertImage}
                     </div>`
-      return html;
-    }
+      return html; 
+    } 
+  };
 
   $('#new_message').on('submit', function(e){
     e.preventDefault();
@@ -47,6 +51,7 @@ $(function(){
 
   var reloadMessages = function() {
     //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
+    if (location.href.match(/\/groups\/\d+\/messages/)){
     var last_message_id = $('.message').last().data('id');
     $.ajax({
       url: './api/messages',
@@ -69,9 +74,12 @@ $(function(){
       })
     })
 
-    // .fail(function() {
-    //   alert('自動更新に失敗しました');
-    // });
+    .fail(function() {
+      alert('自動更新に失敗しました');
+    });
+  } else {
+    clearInterval(interval);
+  }
   };
   setInterval(reloadMessages, 3000);
 });
