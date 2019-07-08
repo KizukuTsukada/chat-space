@@ -13,7 +13,7 @@
           %li.main-header__left-box__member-list__member
           Menber:
           - @group.users.each do |group_member|
-            %div #{group_member.name}&nbsp;
+            %div #{group_member.name}&nbsp; 
 
       .main-header__edit-btn
         = link_to edit_group_path(@group[:id]), class: "current--group__editBtn " do
