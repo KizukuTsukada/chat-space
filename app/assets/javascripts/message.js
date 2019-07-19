@@ -37,7 +37,6 @@ $(function(){
       contentType: false
     })
     .done(function(message){
-      console.log(message)
       var html = buildMessage(message);
       $('.form__submit').attr('disabled', false);
       $('.messages').append(html)
