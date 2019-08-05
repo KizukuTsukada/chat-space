@@ -11,7 +11,7 @@ $(function(){
                     </p>
                     <p class="message__upper-info__date">
                     ${message.created_at}
-                    </p>
+                    </p>
                     </div>
                     <div class="lower-message"></div>
                     <p class="lower-message__content">
